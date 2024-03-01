@@ -1,0 +1,25 @@
+:root {
+  /* Border-color */
+  --border-color-1: rgba(249, 237, 218, 1);
+
+  /* Border-radius */
+  --border-radius-20: 20px;
+}
+
+.filter-container {
+  border: 1px solid var(--border-color-1);
+  display: flex;
+  border-radius: var(--border-radius-20);
+  padding: 10px;
+}
+
+label {
+  flex: 2;
+}
+
+select {
+  flex: 3;
+
+  /* Adding custom CSS */
+  /* background-color: black; */
+}
