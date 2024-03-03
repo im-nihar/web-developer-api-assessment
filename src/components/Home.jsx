@@ -4,12 +4,11 @@ import MovieCard from "./MovieCard";
 
 import "./home.css";
 
-const KEY = "f540e9ee";
+const KEY = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [moviesList, setMoviesList] = useState([]);
   const url = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
-
 
 
   useEffect(() => {
