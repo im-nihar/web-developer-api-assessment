@@ -1,0 +1,60 @@
+:root {
+  --card-height-1: 530px;
+  --card-width-1: 300px;
+  --border-color-1: rgba(249, 237, 218, 1);
+  --font-size-1: 22px;
+  --gap-10: 10px;
+}
+
+.card-container {
+  height: var(--card-height-1);
+  width: var(--card-width-1);
+  border: 1px solid var(--border-color-1);
+  padding: 15px 12px 30px 12px;
+}
+
+.poster-image {
+  height: auto;
+  width: auto;
+}
+
+.movie-title-header {
+  /* display: inline; */
+  font-size: var(--font-size-1);
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-10);
+}
+
+.movie-title {
+  padding: 0 15px;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.movie-ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-10);
+}
+
+.star {
+  height: 21px;
+  width: 21px;
+}
+
+
+/* Common class */
+
+.align-header {
+  display: inline;
+}
