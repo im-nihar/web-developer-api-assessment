@@ -1,7 +1,7 @@
 import "./movieCard.css";
 import ratingStar from "../assets/rating-star.svg";
 
-const MovieCard = () => {
+const MovieCard = ({ movie }) => {
   const tempData = {
     Title: "Batman Begins",
     Year: "2005",
@@ -15,24 +15,24 @@ const MovieCard = () => {
     <div className="card-container">
       <div className="movie-image">
         <img
-          src={tempData.Poster}
-          alt={tempData.Title}
+          src={movie.Poster}
+          alt={movie.Title}
           className="poster-image"
         />
       </div>
       <div className="movie-content">
         <div className="movie-title">
-          <p className="movie-title-header align-header">{tempData.Title}</p>
+          <p className="movie-title-header align-header">{movie.Title}</p>
         </div>
         <div className="movie-details">
           <div className="movie-ratings">
             <div>
               <img src={ratingStar} alt="Movie rating star" className="star" />
             </div>
-            <p className="align-header">8.4</p>
+            <p className="align-header">{movie.imdbRating}</p>
           </div>
           <div>
-            <p className="align-header">released date 1.03.24</p>
+            <p className="align-header">released date {movie.Released}</p>
           </div>
         </div>
       </div>

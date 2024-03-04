@@ -1,8 +1,11 @@
 :root {
 }
 
-
 .header-container {
   display: flex;
   justify-content: center;
+}
+
+.movie-filters-container {
+  margin-bottom: 40px;
 }
