@@ -7,30 +7,59 @@ import "./home.css";
 const KEY = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const [moviesList, setMoviesList] = useState(MOIVELIST1);
+  const [moviesList, setMoviesList] = useState([]); //MOIVELIST1
+  const [isLoading, setIsLoading] = useState(false);
+
   const url = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
 
   useEffect(() => {
-    // getData();
+    getData();
   }, []);
 
   const getData = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log("data", data);
-    // setMoviesList(data.Search);
+    try {
+      setIsLoading(true);
+      const response = await fetch(url);
+      const data = await response.json();
+      // setMoviesList(data.Search);
+      const imdbIDs = data.Search.map((movie) => movie.imdbID);
+      movieDetailsHandler(data.Search, imdbIDs);
+      //   setIsLoading(false);
+      //   let movieList = [];
+      //   getAllMovieDetails(imdbIDs)
+      //     .then((movieDetails) => {
+      //       console.log("movieDetails-->>>", movieDetails);
+      //       let items = movieDetails.forEach((ele) => {
+      //         console.log("elelelelele", ele);
+      //         let eleId = ele.imdbID;
+      //         //   console.log("eleId-->>", eleId);
+      //         let obj = data.Search.find((object, index) => {
+      //           if (object.imdbID == eleId) {
+      //             ele["extraMovieDetails"] = object;
+      //             movieList.push(ele);
+      //           }
+      //         });
+      //       });
+      //       setMoviesList(movieList);
+      //       console.log("please here", movieList);
+      //     })
+      //     .catch((error) => {
+      //       setMoviesList([]); // empty list display on error
+      //       console.error(`Error fetching movie details: ${error.message}`);
+      //     });
+    } catch {
+      console.error(`Error fetching movie details`);
+    }
+  };
 
-    const imdbIDs = data.Search.map((movie) => movie.imdbID);
-    console.log("imdbIDs", imdbIDs);
+  const movieDetailsHandler = (movieData, imdbIDs) => {
     let movieList = [];
     getAllMovieDetails(imdbIDs)
       .then((movieDetails) => {
-        console.log("movieDetails-->>>", movieDetails);
         let items = movieDetails.forEach((ele) => {
-          //   console.log("elelelelele", ele);
           let eleId = ele.imdbID;
           //   console.log("eleId-->>", eleId);
-          let obj = data.Search.find((object, index) => {
+          let obj = movieData.find((object, index) => {
             if (object.imdbID == eleId) {
               ele["extraMovieDetails"] = object;
               movieList.push(ele);
@@ -38,10 +67,12 @@ const Home = () => {
           });
         });
         setMoviesList(movieList);
-        console.log("please here", movieList);
+        setIsLoading(false);
       })
       .catch((error) => {
+        setMoviesList([]); // empty list display on error
         console.error(`Error fetching movie details: ${error.message}`);
+        setIsLoading(false);
       });
   };
 
@@ -50,7 +81,6 @@ const Home = () => {
       const response = await fetch(
         `http://www.omdbapi.com/?apikey=${KEY}&i=${imdbID}`
       );
-      //   console.log("response.data", response.json());
       return response.json();
     } catch (error) {
       console.error(
@@ -64,29 +94,27 @@ const Home = () => {
     const movieDetailsPromises = imdbIDs.map((imdbID) =>
       getMovieDetails(imdbID)
     );
-    console.log("movieDetailsPromises----", movieDetailsPromises);
     const movieDetails = await Promise.all(movieDetailsPromises);
-    console.log("getAllMovieDetails--->>>>>>>", movieDetails);
     return movieDetails;
   };
-
-
 
   return (
     <div className="container">
       <div className="header-container">
-        <h1>Latest Movies</h1>
+        <h1>Latest Movies Reviews</h1>
       </div>
       <div>
-        <div className="movie-filters-container">
-          <MovieFilter />
-        </div>
-
-        <div className="movies-list">
-          {moviesList?.map((movie) => {
-            return <MovieCard movie={movie} />;
-          })}
-        </div>
+        {isLoading ? (
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        ) : (
+          <div className="movie-filters-container">
+            <MovieFilter
+              moviesList={moviesList} //moviesList
+            />
+          </div>
+        )}
       </div>
     </div>
   );

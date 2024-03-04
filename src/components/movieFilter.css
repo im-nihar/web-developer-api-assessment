@@ -1,5 +1,20 @@
+.filters-container {
+  margin-bottom: 40px;
+}
+
 .filter {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   column-gap: 30px;
+}
+
+.align-filters {
+  margin: 5px 0px 5px 0px;
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }

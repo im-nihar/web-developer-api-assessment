@@ -6,13 +6,3 @@
   justify-content: center;
 }
 
-.movie-filters-container {
-  margin-bottom: 40px;
-}
-
-.movies-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}

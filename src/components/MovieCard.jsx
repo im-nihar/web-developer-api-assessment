@@ -19,8 +19,8 @@ const MovieCard = ({ movie }) => {
         <div className="movie-title">
           <p
             className="movie-title-header"
-            onMouseEnter={() => setOnHover(true)}
-            onMouseLeave={() => setOnHover(false)}
+            // onMouseEnter={() => setOnHover(true)}
+            // onMouseLeave={() => setOnHover(false)}
           >
             {movie.Title}
           </p>
