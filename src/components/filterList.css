@@ -1,16 +1,23 @@
 :root {
-  /* Border-color */
-  --border-color-1: rgba(249, 237, 218, 1);
+  /* Colors */
+  --background-color-1: rgba(0, 0, 0, 1);
+  --color-1: rgba(249, 237, 218, 1);
 
   /* Border-radius */
   --border-radius-20: 20px;
+
+  --width-100: 100%;
 }
 
 .filter-container {
-  border: 1px solid var(--border-color-1);
+  border: 1px solid var(--color-1);
   display: flex;
   border-radius: var(--border-radius-20);
-  padding: 10px;
+  padding: 10px 20px;
+}
+
+.filters-select {
+  width: var(--width-100);
 }
 
 label {
@@ -19,7 +26,16 @@ label {
 
 select {
   flex: 3;
+  color: var(--color-1);
+  font-size: 16px;
 
   /* Adding custom CSS */
-  /* background-color: black; */
+  background-color: var(--background-color-1);
+  border: none;
+
+  /* Font Family */
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
