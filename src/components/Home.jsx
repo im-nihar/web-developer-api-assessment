@@ -6,13 +6,13 @@ import "./home.css";
 const KEY = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const [moviesList, setMoviesList] = useState(MOIVELIST1); //MOIVELIST1
+  const [moviesList, setMoviesList] = useState([]); //MOIVELIST1
   const [isLoading, setIsLoading] = useState(false);
 
   const url = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
 
   useEffect(() => {
-    // getData();
+    getData();
   }, []);
 
   const getData = async () => {

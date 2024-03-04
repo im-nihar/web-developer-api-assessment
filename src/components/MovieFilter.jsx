@@ -36,10 +36,9 @@ const MovieFilter = ({ moviesList }) => {
         break;
 
       case "RATING":
-        list = moviesList.sort(
-          (a, b) =>
-            parseFloat(b.Ratings[0].Value) - parseFloat(a.Ratings[0].Value)
-        );
+        list = moviesList.sort((a, b) => {
+          return parseFloat(b.imdbRating) - parseFloat(a.imdbRating);
+        });
         break;
 
       case "ALPHA_ORDER":
