@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import MovieFilter from "./MovieFilter";
-import MovieCard from "./MovieCard";
 
 import "./home.css";
 
 const KEY = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const [moviesList, setMoviesList] = useState([]); //MOIVELIST1
+  const [moviesList, setMoviesList] = useState(MOIVELIST1); //MOIVELIST1
   const [isLoading, setIsLoading] = useState(false);
 
   const url = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
 
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
 
   const getData = async () => {
@@ -24,29 +23,6 @@ const Home = () => {
       // setMoviesList(data.Search);
       const imdbIDs = data.Search.map((movie) => movie.imdbID);
       movieDetailsHandler(data.Search, imdbIDs);
-      //   setIsLoading(false);
-      //   let movieList = [];
-      //   getAllMovieDetails(imdbIDs)
-      //     .then((movieDetails) => {
-      //       console.log("movieDetails-->>>", movieDetails);
-      //       let items = movieDetails.forEach((ele) => {
-      //         console.log("elelelelele", ele);
-      //         let eleId = ele.imdbID;
-      //         //   console.log("eleId-->>", eleId);
-      //         let obj = data.Search.find((object, index) => {
-      //           if (object.imdbID == eleId) {
-      //             ele["extraMovieDetails"] = object;
-      //             movieList.push(ele);
-      //           }
-      //         });
-      //       });
-      //       setMoviesList(movieList);
-      //       console.log("please here", movieList);
-      //     })
-      //     .catch((error) => {
-      //       setMoviesList([]); // empty list display on error
-      //       console.error(`Error fetching movie details: ${error.message}`);
-      //     });
     } catch {
       console.error(`Error fetching movie details`);
     }
@@ -58,7 +34,6 @@ const Home = () => {
       .then((movieDetails) => {
         let items = movieDetails.forEach((ele) => {
           let eleId = ele.imdbID;
-          //   console.log("eleId-->>", eleId);
           let obj = movieData.find((object, index) => {
             if (object.imdbID == eleId) {
               ele["extraMovieDetails"] = object;

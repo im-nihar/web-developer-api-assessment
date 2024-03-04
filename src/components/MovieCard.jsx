@@ -3,7 +3,14 @@ import ratingStar from "../assets/rating-star.svg";
 import { useState } from "react";
 
 const MovieCard = ({ movie }) => {
-//   const [onHover, setOnHover] = useState(false);
+  //   const [onHover, setOnHover] = useState(false);
+
+  const movieDateHander = (date) => {
+    let newDate = new Date(date);
+    const options = { day: "2-digit", month: "2-digit", year: "2-digit" };
+    let newDateFormat = newDate.toLocaleDateString("en-GB", options);
+    return newDateFormat.split('/').join(".");
+  };
 
   return (
     <div className="card-container">
@@ -33,7 +40,9 @@ const MovieCard = ({ movie }) => {
             <p className="align-header">{movie.imdbRating}</p>
           </div>
           <div>
-            <p className="align-header">released date {movie.Released}</p>
+            <p className="align-header">
+              released date {movieDateHander(movie.Released)}
+            </p>
           </div>
         </div>
       </div>
