@@ -1,9 +1,15 @@
 :root {
-  --card-height-1: 530px;
-  --card-width-1: 300px;
+  --card-height-1: 550px;
+  --card-width-1: 320px;
   --border-color-1: rgba(249, 237, 218, 1);
   --font-size-1: 22px;
   --gap-10: 10px;
+  --gap-20: 20px;
+  --margin-0: 0px;
+
+  /* Image size */
+  --image-width-1: 320px;
+  --image-height-1: 450px;
 }
 
 .card-container {
@@ -11,16 +17,29 @@
   width: var(--card-width-1);
   border: 1px solid var(--border-color-1);
   padding: 15px 12px 30px 12px;
+
+  display: grid;
+  gap: var(--gap-20);
+}
+
+.movie-image {
+  width: var(--image-width-1);
+  height: var(--image-height-1);
 }
 
 .poster-image {
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .movie-title-header {
   /* display: inline; */
   font-size: var(--font-size-1);
+  margin: var(--margin-0);
+  white-space: nowrap; 
+  width: 250px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .movie-content {
@@ -52,7 +71,6 @@
   height: 21px;
   width: 21px;
 }
-
 
 /* Common class */
 

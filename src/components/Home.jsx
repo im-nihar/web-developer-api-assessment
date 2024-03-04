@@ -82,7 +82,7 @@ const Home = () => {
           <MovieFilter />
         </div>
 
-        <div>
+        <div className="movies-list">
           {moviesList?.map((movie) => {
             return <MovieCard movie={movie} />;
           })}
