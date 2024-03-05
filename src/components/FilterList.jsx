@@ -1,5 +1,10 @@
 import "./filterList.css";
 
+// This component uses select tag to display the options
+// The options are received as props.
+// Once the option is selected a value is selected and a 
+// prop (setMovieFilterValue) is updated
+// Other props include constant values such as header names
 const FilterList = ({
   filterList,
   sortHeader,

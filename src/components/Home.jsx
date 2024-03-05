@@ -15,6 +15,7 @@ const Home = () => {
     getData();
   }, []);
 
+  //   Function to fetch data from the given URL
   const getData = async () => {
     try {
       setIsLoading(true);
@@ -25,9 +26,13 @@ const Home = () => {
       movieDetailsHandler(data.Search, imdbIDs);
     } catch {
       console.error(`Error fetching movie details`);
+      setIsLoading(false);
     }
   };
 
+  // Function to manipulate the movie data
+  // Uses movie ID to find and add the correct movie to the list
+  // This is because all the data will be in one state
   const movieDetailsHandler = (movieData, imdbIDs) => {
     let movieList = [];
     getAllMovieDetails(imdbIDs)
@@ -51,6 +56,9 @@ const Home = () => {
       });
   };
 
+
+// Fetch details of each movie from the given
+// Movie ID is used as a parameter
   const getMovieDetails = async (imdbID) => {
     try {
       const response = await fetch(
@@ -64,7 +72,8 @@ const Home = () => {
     }
   };
 
-  // Function to make API calls for all IMDb IDs
+  // Function to make API calls for all movie ID's
+  // Returns an array with promises for all movies once successful
   const getAllMovieDetails = async (imdbIDs) => {
     const movieDetailsPromises = imdbIDs.map((imdbID) =>
       getMovieDetails(imdbID)

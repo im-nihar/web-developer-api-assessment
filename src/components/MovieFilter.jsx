@@ -14,6 +14,10 @@ const MovieFilter = ({ moviesList }) => {
     filtersHandler();
   }, [movieFilterValue, moviesList]);
 
+
+// Function to handle the filters
+// Filter by date and rating. Here the date and rating are hardcoded. 
+// Sort by alphabetical and reverse aplhabetical order
   const filtersHandler = () => {
     let list = [...moviesList];
     switch (movieFilterValue) {
@@ -40,10 +44,12 @@ const MovieFilter = ({ moviesList }) => {
         break;
 
       case "ALPHA_ORDER":
+        // Sorting the names accordingly. Displays it in aplphabetical order
         list = moviesList.sort((a, b) => a.Title.localeCompare(b.Title));
         break;
 
       case "REVERSE_ALPHA_ORDER":
+        // Sorting the names accordingly. Displays it in reverse aplphabetical order
         list = moviesList.sort((a, b) => b.Title.localeCompare(a.Title));
         break;
 
@@ -59,10 +65,13 @@ const MovieFilter = ({ moviesList }) => {
     setFilteredMovieList([...list]);
   };
 
+  // Renders a statement when there is no data present
   const renderNoList = () => {
     return <h1>No Record Present</h1>;
   };
 
+  // Renders the movie list
+  // A moviecard component is used to display the movie details
   const renderList = () =>
     filteredMovieList?.map((movie, index) => {
       return (
