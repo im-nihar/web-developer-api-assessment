@@ -3,15 +3,15 @@ import ratingStar from "../assets/rating-star.svg";
 import { useState } from "react";
 
 const MovieCard = ({ movie }) => {
-  //   const [onHover, setOnHover] = useState(false);
+  const [onHover, setOnHover] = useState(false);
 
-  // Function to convert date 
+  // Function to convert date
   // Date converted from 12 Jan 2002 to 12.01.02
   const movieDateHander = (date) => {
     let newDate = new Date(date);
     const options = { day: "2-digit", month: "2-digit", year: "2-digit" };
     let newDateFormat = newDate.toLocaleDateString("en-GB", options);
-    return newDateFormat.split('/').join(".");
+    return newDateFormat.split("/").join(".");
   };
 
   return (
@@ -20,10 +20,10 @@ const MovieCard = ({ movie }) => {
         <img src={movie.Poster} alt={movie.Title} className="poster-image" />
       </div>
       <div className="movie-content">
-        {/* {true && (
-          <p style={{ position: "absolute", width: "200px", padding: "10px" }}>
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          </p>
+        {/* {onHover && (
+          <div className="hover-container">
+            <p>{movie.Title}</p>
+          </div>
         )} */}
         <div className="movie-title">
           <p

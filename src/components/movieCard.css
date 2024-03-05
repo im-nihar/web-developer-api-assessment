@@ -10,10 +10,17 @@
   /* Image size */
   --image-width-1: 320px;
   --image-height-1: 450px;
+
+  --hover-container-width-1: 200px;
+  --padding-5: 5px;
+
+  --background-hover-color-1: rgb(255, 255, 255);
+  --font-color-hover-1: rgb(0, 0, 0);
 }
 
 .card-container {
-  height: var(--card-height-1);
+  /* height: var(--card-height-1); */
+  min-height: var(--card-height-1);
   width: var(--card-width-1);
   border: 1px solid var(--border-color-1);
   padding: 15px 12px 30px 12px;
@@ -33,13 +40,14 @@
 }
 
 .movie-title-header {
-  /* display: inline; */
   font-size: var(--font-size-1);
   margin: var(--margin-0);
-  white-space: nowrap; 
   width: 250px; 
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+  /* For Ellipsis */
+  /* white-space: nowrap;  */
+  /* overflow: hidden;/ */
+  /* text-overflow: ellipsis; */
 }
 
 .movie-content {
@@ -70,6 +78,15 @@
 .star {
   height: 21px;
   width: 21px;
+}
+
+.hover-container {
+  position: absolute;
+  width: var(--hover-container-width-1);
+  padding: var(--padding-5);
+  word-wrap: break-word;
+  background-color: var(--background-hover-color-1);
+  color: var(--font-color-hover-1);
 }
 
 /* Common class */
