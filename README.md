@@ -1,12 +1,3 @@
-Vite Installation
-
-# React + Vite
-
-#### Instructions
-
-1. Install Vite with React and Javascript
-2. Install node modules (npm i)
-
 # Vite project Latest Movies Reviews
 
 This project is about creating a web application that retrieves data from the Open Movie Database (OMDb) API and displays it on a listing page. The page includes cards for each movie, displaying information such as title, poster, release date, and rating. Additionally, the application allows users to filter the movies based on release date and rating, as well as sorting them in alphabetical and reverse alphabetical order.
@@ -42,7 +33,7 @@ Make sure you have Node.js and npm (Node Package Manager) installed on your mach
 
 ## Setup
 
-1. Create a new React Project with Vite.
+1. Create a new React Project with Vite. (Install Vite with React and Javascript) 
    - Note: Vite requires Node.js version 18+. 20+.
 
 ```javascript
