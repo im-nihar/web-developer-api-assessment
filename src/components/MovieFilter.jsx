@@ -18,6 +18,8 @@ const SORT_FILTER = [
 const SORT_HEADERS_1 = "Filter movies by";
 const SORT_HEADERS_2 = "Sort results";
 
+const DATE_FILTER = "1 Jan 2000";
+
 const MovieFilter = ({ moviesList }) => {
   const [movieFilterValue, setMovieFilterValue] = useState(undefined); //"DEFAULT"
   const [filteredMovieList, setFilteredMovieList] = useState([]);
@@ -30,14 +32,24 @@ const MovieFilter = ({ moviesList }) => {
     let list = [...moviesList];
     switch (movieFilterValue) {
       case "DATE":
-        list = moviesList.sort((a, b) => {
-          return new Date(a.Released) - new Date(b.Released);
+        // list = moviesList.sort((a, b) => {
+        //   return new Date(a.Released) - new Date(b.Released);
+        // });
+        
+        // Filtering movies based on the date which is a temp date - 1 Jan 2000
+        list = moviesList.filter((item) => {
+          return new Date(item.Released) >= new Date(DATE_FILTER);
         });
         break;
 
       case "RATING":
-        list = moviesList.sort((a, b) => {
-          return parseFloat(b.imdbRating) - parseFloat(a.imdbRating);
+        // list = moviesList.sort((a, b) => {
+        //   return parseFloat(b.imdbRating) - parseFloat(a.imdbRating);
+        // });
+
+        // Filtering movies who has movie rating above 7.5
+        list = moviesList.filter((item) => {
+          return parseFloat(item.imdbRating) > 7.5;
         });
         break;
 
@@ -57,6 +69,7 @@ const MovieFilter = ({ moviesList }) => {
         list = moviesList;
         break;
     }
+    console.log("list--->>", list);
     setFilteredMovieList([...list]);
   };
 
