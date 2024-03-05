@@ -9,7 +9,11 @@ const Home = () => {
   const [moviesList, setMoviesList] = useState([]); //MOIVELIST1
   const [isLoading, setIsLoading] = useState(false);
 
-  const url = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
+  // API to get movies data list
+  const MOVIE_URL = `http://www.omdbapi.com/?apikey=${KEY}&s=batman`;
+
+  //API to get single movie data with movie ID
+  const SINGLE_MOVIE_URL = `http://www.omdbapi.com/?apikey=${KEY}&i=`;
 
   useEffect(() => {
     getData();
@@ -19,7 +23,7 @@ const Home = () => {
   const getData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(url);
+      const response = await fetch(MOVIE_URL);
       const data = await response.json();
       // setMoviesList(data.Search);
       const imdbIDs = data.Search.map((movie) => movie.imdbID);
@@ -56,14 +60,11 @@ const Home = () => {
       });
   };
 
-
-// Fetch details of each movie from the given
-// Movie ID is used as a parameter
+  // Fetch details of each movie from the given
+  // Movie ID is used as a parameter
   const getMovieDetails = async (imdbID) => {
     try {
-      const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${KEY}&i=${imdbID}`
-      );
+      const response = await fetch(`${SINGLE_MOVIE_URL}${imdbID}`);
       return response.json();
     } catch (error) {
       console.error(
