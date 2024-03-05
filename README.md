@@ -51,6 +51,11 @@ npm run dev
 // use the localhost link to view the project running
 // For example: http://localhost:5173/
 ```
+2. Create .env file into the root directory and add the key
+```javascript
+VITE_API_KEY = 'your_key'  
+```
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
