@@ -1,22 +1,8 @@
 import { useEffect, useState } from "react";
 import FilterList from "./FilterList";
 import MovieCard from "./MovieCard";
+import * as myConsts from "../constants/consts";
 import "./movieFilter.css";
-
-const MOVIE_FILTER = [
-  { value: "DEFAULT", name: "Choose a movie filter" },
-  { value: "DATE", name: "Release Date" },
-  { value: "RATING", name: "Rating" },
-];
-
-const SORT_FILTER = [
-  { value: "DEFAULT", name: "Choose a sorting filter" },
-  { value: "ALPHA_ORDER", name: "Alphabetical order" },
-  { value: "REVERSE_ALPHA_ORDER", name: "Reverse alphabetical order" },
-];
-
-const SORT_HEADERS_1 = "Filter movies by";
-const SORT_HEADERS_2 = "Sort results";
 
 const DATE_FILTER = "1 Jan 2000";
 
@@ -35,7 +21,7 @@ const MovieFilter = ({ moviesList }) => {
         // list = moviesList.sort((a, b) => {
         //   return new Date(a.Released) - new Date(b.Released);
         // });
-        
+
         // Filtering movies based on the date which is a temp date - 1 Jan 2000
         list = moviesList.filter((item) => {
           return new Date(item.Released) >= new Date(DATE_FILTER);
@@ -69,7 +55,7 @@ const MovieFilter = ({ moviesList }) => {
         list = moviesList;
         break;
     }
-    console.log("list--->>", list);
+    // console.log("list--->>", list);
     setFilteredMovieList([...list]);
   };
 
@@ -92,16 +78,16 @@ const MovieFilter = ({ moviesList }) => {
         <div className="filter">
           <div className="align-filters">
             <FilterList
-              filterList={MOVIE_FILTER}
-              sortHeader={SORT_HEADERS_1}
+              filterList={myConsts.MOVIE_FILTER}
+              sortHeader={myConsts.SORT_HEADERS_1}
               setMovieFilterValue={setMovieFilterValue}
               movieFilterValue={movieFilterValue}
             />
           </div>
           <div className="align-filters">
             <FilterList
-              filterList={SORT_FILTER}
-              sortHeader={SORT_HEADERS_2}
+              filterList={myConsts.SORT_FILTER}
+              sortHeader={myConsts.SORT_HEADERS_2}
               setMovieFilterValue={setMovieFilterValue}
               movieFilterValue={movieFilterValue}
             />

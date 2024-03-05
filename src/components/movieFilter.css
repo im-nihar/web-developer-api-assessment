@@ -1,3 +1,8 @@
+:root {
+  --column-gap-30: 30px;
+  --gap-10: 10px;
+}
+
 .filters-container {
   margin-bottom: 40px;
 }
@@ -5,7 +10,7 @@
 .filter {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  column-gap: 30px;
+  column-gap: var(--column-gap-30);
 }
 
 .align-filters {
@@ -15,6 +20,6 @@
 .movies-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--gap-10);
   justify-content: center;
 }
