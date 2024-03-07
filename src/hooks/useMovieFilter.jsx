@@ -51,7 +51,7 @@ export const useMovieFilter = (moviesList) => {
           list = moviesList;
           break;
       }
-      console.log("list",list);
+    //   console.log("list",list);
       setFilteredMovieList([...list]);
     };
 

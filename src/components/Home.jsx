@@ -16,7 +16,6 @@ const Home = () => {
         <h1>Latest Movies Reviews</h1>
       </div>
       <div>
-        {console.log("detailsLoading", detailsLoading)}
         {detailsLoading ? (
           <div>
             <h1>Loading...</h1>
