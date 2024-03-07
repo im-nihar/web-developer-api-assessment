@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieFilter from "./MovieFilter";
 import { useMovieDetailsHandler } from "../hooks/useMovieDetailsHandler";
-import "./home.css";
+import "../styles/home.css";
 
 const Home = () => {
   // Custom Hook which provides the details of movies

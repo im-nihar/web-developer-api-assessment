@@ -1,4 +1,4 @@
-import "./filterList.css";
+import "../styles/filterList.css";
 
 // This component uses select tag to display the options
 // The options are received as props.

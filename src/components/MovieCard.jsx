@@ -1,4 +1,4 @@
-import "./movieCard.css";
+import "../styles/movieCard.css";
 import ratingStar from "../assets/rating-star.svg";
 import { useState } from "react";
 import { movieDateHander } from "../utils/utils";

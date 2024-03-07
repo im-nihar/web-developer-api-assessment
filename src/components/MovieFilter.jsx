@@ -3,7 +3,7 @@ import { useMovieFilter } from "../hooks/useMovieFilter";
 import FilterList from "./FilterList";
 import MovieCard from "./MovieCard";
 import * as myConsts from "../constants/consts";
-import "./movieFilter.css";
+import "../styles/movieFilter.css";
 
 const MovieFilter = ({ moviesList }) => {
   const { movieFilterValue, setMovieFilterValue, filteredMovieList } =
